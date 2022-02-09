@@ -1,4 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+:root {
+  --background: hsl(0, 0%, 98%);
+  --text-primary: hsl(235, 21%, 11%);
+}
+
+[data-theme='dark'] {
+  --background: hsl(235, 21%, 11%);
+  --text-primary: hsl(0, 0%, 98%);
+}
+
+.app {
+  color: var(--text-primary);
+  background-color: var(--background);
+  transition: all 0.5s;
+  height: 100vh;
+}
+
+.banner {
+  height: 38%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -250px !important;
+  width: 40%;
+  margin: auto;
+}
+
+.title {
+  color: hsl(0, 0%, 98%);
+  font-size: 60px;
+  letter-spacing: 20px;
+}
+
+button {
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  transition: all 0.5s;
+}
+
+.switchIcon {
+  height: 40px;
+  width: 40px;
 }
