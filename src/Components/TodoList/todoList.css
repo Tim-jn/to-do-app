@@ -1,0 +1,48 @@
+.todoForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 45%;
+  height: 80px;
+  border-radius: 5px;
+  margin: auto;
+  background: var(--formBackground);
+  margin-top: 50px;
+}
+
+.createTodo {
+  margin: auto;
+  margin-left: 0;
+  width: 85%;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+}
+
+input:focus {
+  outline: none;
+}
+
+.submitTodo {
+  background: none;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: 2px solid hsla(233, 14%, 35%, 0.699);
+  margin: auto;
+  cursor: pointer;
+}
+
+.todoList {
+  width: 45%;
+  border-radius: 5px;
+  margin: auto;
+  background: var(--formBackground);
+  margin-top: 30px;
+  color: var(--text-primary);
+}
+
+.todoInfo {
+  width: 100%;
+  height: 60px;
+}

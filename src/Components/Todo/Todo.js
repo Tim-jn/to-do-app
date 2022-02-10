@@ -1,39 +1,27 @@
 import './todo.css'
-import iconCheck from './icon-check.svg'
-import { useState } from 'react'
+import checkIcon from './icon-check.svg'
 
-export default function Todo() {
-  const [todos, setTodos] = useState(['Faire des courses'])
+export default function Todo({ todo, handleToggle }) {
 
-  const handleSubmit = (e) => {
+  const handleClick = (e) => {
     e.preventDefault()
+    console.log(todo)
+    handleToggle(e.currentTarget.id)
   }
+
   return (
-    <>
-      <form className="todoForm">
-        <input
-          className="submitTodo"
-          type="submit"
-          value=" "
-          onClick={handleSubmit}
-        />
-        <input
-          type="text"
-          className="createTodo"
-          name="createTodo"
-          placeholder="Create a new todo..."
-        />
-      </form>
-      <div className="todoList">
-        {todos.map((todo) => {
-          return (
-            <div className="todoItem" key={todo}>
-              {todo}
-            </div>
-          )
-        })}
-        <div className="todoInfo">items left</div>
+    <div className="todoItem">
+      <button
+        id={todo.id}
+        onClick={handleClick}
+        className={todo.complete ? 'todoTaskBtn taskCompleted' : 'todoTaskBtn'}
+        type="button"
+      >
+        {todo.complete ? <img src={checkIcon} alt="Check Icon" /> : ''}
+      </button>
+      <div className={todo.complete ? 'todoTask strike' : 'todoTask'}>
+        {todo.task}
       </div>
-    </>
+    </div>
   )
 }

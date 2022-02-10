@@ -4,9 +4,26 @@ import darkBannerDesktop from './assets/bg-desktop-dark.jpg'
 import lightBannerDesktop from './assets/bg-desktop-light.jpg'
 import moonIcon from './assets/icon-moon.svg'
 import sunIcon from './assets/icon-sun.svg'
-import Todo from './Components/Todo/Todo'
+import TodoList from './Components/TodoList/TodoList'
+import data from './data/data.json'
+import { useState } from 'react'
 
 function App() {
+  // Set todo list
+
+  const [toDoList, setToDoList] = useState(data)
+
+  const handleToggle = (id) => {
+    let mapped = toDoList.map((task) => {
+      return task.id === id
+        ? { ...task, complete: !task.complete }
+        : { ...task }
+    })
+    setToDoList(mapped)
+  }
+
+  // Set mode (dark or light)
+
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches
   const [theme, setTheme] = useLocalStorage(
     'theme',
@@ -36,7 +53,7 @@ function App() {
             />
           </button>
         </div>
-        <Todo />
+        <TodoList handleToggle={handleToggle} toDoList={toDoList} />
       </section>
     </div>
   )
