@@ -1,0 +1,33 @@
+.todoContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 40%;
+  height: 80px;
+  border-radius: 5px;
+  margin: auto;
+  background: var(--formBackground);
+  margin-top: 50px;
+}
+
+.createTodo {
+  width: 90%;
+  height: 100%;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+}
+
+input:focus {
+  outline: none;
+}
+
+.submitTodo {
+  background: none;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: 2px solid hsla(233, 14%, 35%, 0.699);
+  margin: 25px;
+  cursor: pointer;
+}

@@ -1,9 +1,10 @@
 import './App.css'
 import useLocalStorage from 'use-local-storage'
-import darkBannerDesktop from './bg-desktop-dark.jpg'
-import lightBannerDesktop from './bg-desktop-light.jpg'
-import moonIcon from './icon-moon.svg'
-import sunIcon from './icon-sun.svg'
+import darkBannerDesktop from './assets/bg-desktop-dark.jpg'
+import lightBannerDesktop from './assets/bg-desktop-light.jpg'
+import moonIcon from './assets/icon-moon.svg'
+import sunIcon from './assets/icon-sun.svg'
+import Todo from './Components/Todo/Todo'
 
 function App() {
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -24,16 +25,19 @@ function App() {
         alt="Banner"
         className="banner"
       />
-      <div className="headerContent">
-        <h1 className="title">TODO</h1>
-        <button onClick={switchTheme}>
-          <img
-            src={theme === 'light' ? moonIcon : sunIcon}
-            alt="Theme Icon"
-            className="switchIcon"
-          />
-        </button>
-      </div>
+      <section>
+        <div className="headerContent">
+          <h1 className="title">TODO</h1>
+          <button onClick={switchTheme}>
+            <img
+              src={theme === 'light' ? moonIcon : sunIcon}
+              alt="Theme Icon"
+              className="switchIcon"
+            />
+          </button>
+        </div>
+        <Todo />
+      </section>
     </div>
   )
 }
