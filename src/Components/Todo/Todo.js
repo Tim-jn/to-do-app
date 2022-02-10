@@ -2,10 +2,8 @@ import './todo.css'
 import checkIcon from './icon-check.svg'
 
 export default function Todo({ todo, handleToggle }) {
-
   const handleClick = (e) => {
     e.preventDefault()
-    console.log(todo)
     handleToggle(e.currentTarget.id)
   }
 

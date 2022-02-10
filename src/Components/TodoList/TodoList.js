@@ -23,7 +23,7 @@ export default function TodoList({ toDoList, handleToggle }) {
       </form>
       <div className="todoList">
         <div>
-          {toDoList.map((todo) => {
+          {toDoList.map((todo, index) => {
             return (
               <Todo key={todo.id} handleToggle={handleToggle} todo={todo} />
             )
