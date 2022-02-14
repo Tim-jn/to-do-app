@@ -1,23 +1,33 @@
 import './todoList.css'
 import Todo from '../Todo/Todo'
+import { useState } from 'react'
 
-export default function TodoList({ toDoList, handleToggle, handleFilter }) {
+export default function TodoList({
+  toDoList,
+  handleToggle,
+  handleFilter,
+  addTask,
+}) {
+  const [userInput, setUserInput] = useState('')
+
+  const handleChange = (e) => {
+    setUserInput(e.currentTarget.value)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    addTask(userInput)
+    setUserInput('')
   }
   return (
     <>
-      <form className="todoForm">
+      <form onSubmit={handleSubmit} className="todoForm">
+        <input className="submitTodo" type="submit" value=" " />
         <input
-          className="submitTodo"
-          type="submit"
-          value=" "
-          onClick={handleSubmit}
-        />
-        <input
+          onChange={handleChange}
           type="text"
+          value={userInput}
           className="createTodo"
-          name="createTodo"
           placeholder="Create a new todo..."
         />
       </form>
@@ -29,6 +39,9 @@ export default function TodoList({ toDoList, handleToggle, handleFilter }) {
         </div>
         <div className="todoInfo">
           {toDoList.length}items left
+          <button className="allButton">All</button>
+          <button className="activeButton">Active</button>
+          <button className="completedButton">Completed</button>
           <button onClick={handleFilter} className="clearButton">
             Clear Completed
           </button>

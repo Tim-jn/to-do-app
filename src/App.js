@@ -29,6 +29,15 @@ function App() {
     setToDoList(filtered)
   }
 
+  const addTask = (userInput) => {
+    let copy = [...toDoList]
+    copy = [
+      ...copy,
+      { id: toDoList.length + 1, task: userInput, complete: false },
+    ]
+    setToDoList(copy)
+  }
+
   // Set mode (dark or light)
 
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -63,6 +72,7 @@ function App() {
         <TodoList
           handleToggle={handleToggle}
           handleFilter={handleFilter}
+          addTask={addTask}
           toDoList={toDoList}
         />
       </section>
