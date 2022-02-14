@@ -15,11 +15,18 @@ function App() {
 
   const handleToggle = (id) => {
     let mapped = toDoList.map((task) => {
-      return task.id === Number(id)
+      return task.id === parseInt(id)
         ? { ...task, complete: !task.complete }
         : { ...task }
     })
     setToDoList(mapped)
+  }
+
+  const handleFilter = () => {
+    let filtered = toDoList.filter((task) => {
+      return !task.complete
+    })
+    setToDoList(filtered)
   }
 
   // Set mode (dark or light)
@@ -53,7 +60,11 @@ function App() {
             />
           </button>
         </div>
-        <TodoList handleToggle={handleToggle} toDoList={toDoList} />
+        <TodoList
+          handleToggle={handleToggle}
+          handleFilter={handleFilter}
+          toDoList={toDoList}
+        />
       </section>
     </div>
   )

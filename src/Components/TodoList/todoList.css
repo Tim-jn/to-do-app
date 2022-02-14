@@ -45,4 +45,9 @@ input:focus {
 .todoInfo {
   width: 100%;
   height: 60px;
+
+}
+
+.clearButton {
+  color: var(--text-primary);
 }
