@@ -19,6 +19,7 @@ export default function TodoList({
     addTask(userInput)
     setUserInput('')
   }
+
   return (
     <>
       <form onSubmit={handleSubmit} className="todoForm">
@@ -29,6 +30,7 @@ export default function TodoList({
           value={userInput}
           className="createTodo"
           placeholder="Create a new todo..."
+          required
         />
       </form>
       <div className="todoList">
@@ -38,10 +40,12 @@ export default function TodoList({
           })}
         </div>
         <div className="todoInfo">
-          {toDoList.length}items left
-          <button className="allButton">All</button>
-          <button className="activeButton">Active</button>
-          <button className="completedButton">Completed</button>
+          {toDoList.length} items left
+          <div className="middleButtons">
+            <button className="allButton">All</button>
+            <button className="activeButton">Active</button>
+            <button className="completedButton">Completed</button>
+          </div>
           <button onClick={handleFilter} className="clearButton">
             Clear Completed
           </button>
