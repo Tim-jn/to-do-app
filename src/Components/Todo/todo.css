@@ -16,6 +16,10 @@
   cursor: pointer;
 }
 
+.todoTaskBtn:hover {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
 .taskCompleted {
   background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }

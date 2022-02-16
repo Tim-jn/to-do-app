@@ -16,7 +16,7 @@
   width: 85%;
   background: none;
   border: none;
-  color: var(--text-primary);
+  color: var(--textPrimary);
 }
 
 input:focus {
@@ -33,13 +33,17 @@ input:focus {
   cursor: pointer;
 }
 
+.submitTodo:hover {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
 .todoList {
   width: 45%;
   border-radius: 5px;
   margin: auto;
   background: var(--formBackground);
   margin-top: 30px;
-  color: var(--text-primary);
+  color: var(--textPrimary);
 }
 
 .todoInfo {
@@ -48,21 +52,32 @@ input:focus {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: var(--textTertiary);
   cursor: default;
 }
 
 .middleButtons > * {
   margin-left: 20px;
-  color: var(--text-primary);
+  color: var(--textTertiary);
   cursor: pointer;
+  font-weight: 700;
+}
+
+.middleButtons > *:hover,
+.clearButton:hover {
+  color: var(--textHover);
 }
 
 .clearButton {
-  color: var(--text-primary);
   cursor: pointer;
+  color: var(--textTertiary);
 }
 
 .todoListContent {
   overflow: auto;
   max-height: 450px;
+}
+
+.activeLink {
+  color: hsl(220, 98%, 61%);
 }

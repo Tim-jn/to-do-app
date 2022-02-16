@@ -14,6 +14,7 @@ export default function TodoList({
   isFiltered,
 }) {
   const [userInput, setUserInput] = useState('')
+  const [activeLink, setActiveLink] = useState(1)
 
   const handleChange = (e) => {
     setUserInput(e.currentTarget.value)
@@ -57,13 +58,39 @@ export default function TodoList({
         <div className="todoInfo">
           {toDoList.length} items left
           <div className="middleButtons">
-            <button onClick={showAll} className="allButton">
+            <button
+              onClick={() => {
+                showAll()
+                setActiveLink(1)
+              }}
+              className={
+                activeLink === 1 ? 'allButton activeLink' : 'allButton'
+              }
+            >
               All
             </button>
-            <button onClick={showActive} className="activeButton">
+            <button
+              onClick={() => {
+                showActive()
+                setActiveLink(2)
+              }}
+              className={
+                activeLink === 2 ? 'activeButton activeLink' : 'activeButton'
+              }
+            >
               Active
             </button>
-            <button onClick={showCompleted} className="completedButton">
+            <button
+              onClick={() => {
+                showCompleted()
+                setActiveLink(3)
+              }}
+              className={
+                activeLink === 3
+                  ? 'completedButton activeLink'
+                  : 'completedButton'
+              }
+            >
               Completed
             </button>
           </div>
