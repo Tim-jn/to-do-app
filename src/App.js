@@ -10,7 +10,6 @@ import { useState } from 'react'
 
 function App() {
   // Set todo list
-
   const [toDoList, setToDoList] = useState(data)
 
   const handleToggle = (id) => {
@@ -31,12 +30,16 @@ function App() {
 
   const addTask = (userInput) => {
     let copy = [...toDoList]
-    copy = [
-      ...copy,
-      { id: toDoList.length + 1, task: userInput, complete: false },
-    ]
+    copy = [...copy, { id: rand, task: userInput, complete: false }]
     setToDoList(copy)
   }
+
+  // const showActive = () => {
+  //   let copy = [...toDoList]
+  //   copy = copy.map((item) => {
+  //     return item
+  //   })
+  // }
 
   // Set mode (dark or light)
 
@@ -50,6 +53,10 @@ function App() {
     const newTheme = theme === 'light' ? 'dark' : 'light'
     setTheme(newTheme)
   }
+
+  // get a random id
+
+  const rand = Math.floor(Math.random() * (100 - 6 + 1)) + 6
 
   return (
     <div className="app" data-theme={theme}>
@@ -73,6 +80,7 @@ function App() {
           handleToggle={handleToggle}
           handleFilter={handleFilter}
           addTask={addTask}
+          // showActive={showActive}
           toDoList={toDoList}
         />
       </section>

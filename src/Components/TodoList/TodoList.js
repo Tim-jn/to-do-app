@@ -7,6 +7,7 @@ export default function TodoList({
   handleToggle,
   handleFilter,
   addTask,
+  // showActive,
 }) {
   const [userInput, setUserInput] = useState('')
 
