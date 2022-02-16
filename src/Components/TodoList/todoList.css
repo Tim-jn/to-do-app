@@ -55,13 +55,29 @@ input:focus {
   align-items: center;
   color: var(--textTertiary);
   cursor: default;
+  flex-wrap: wrap;
+}
+
+.itemsLeft {
+  margin: 0 10px;
+}
+
+span {
+  font-size: 16px;
 }
 
 .middleButtons > * {
-  margin-left: 20px;
+  margin: 0 10px;
   color: var(--textTertiary);
   cursor: pointer;
   font-weight: 700;
+  font-size: 16px;
+}
+
+.middleButtons {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
 }
 
 .middleButtons > *:hover,
@@ -72,6 +88,8 @@ input:focus {
 .clearButton {
   cursor: pointer;
   color: var(--textTertiary);
+  font-size: 16px;
+  margin: 0 10px;
 }
 
 .todoListContent {
@@ -81,4 +99,53 @@ input:focus {
 
 .activeLink {
   color: hsl(220, 98%, 61%);
+}
+
+@media screen and (max-width: 1100px) {
+  .middleButtons {
+    order: 3;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .todoInfo {
+    background-color: var(--background);
+    height: auto;
+  }
+
+  .itemsLeft,
+  .clearButton {
+    background: var(--formBackground);
+    width: 50%;
+    margin: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .itemsLeft {
+    border-bottom-left-radius: 5px;
+    justify-content: flex-start;
+  }
+
+  .clearButton {
+    border-bottom-right-radius: 5px;
+    justify-content: flex-end;
+  }
+
+  span {
+    margin: 0 15px;
+  }
+
+  .middleButtons {
+    margin: 20px 0 0 0;
+    background: var(--formBackground);
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

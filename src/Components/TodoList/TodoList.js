@@ -56,7 +56,9 @@ export default function TodoList({
               })}
         </div>
         <div className="todoInfo">
-          {toDoList.length} items left
+          <div className="itemsLeft">
+            <span>{toDoList.length} items left</span>
+          </div>
           <div className="middleButtons">
             <button
               onClick={() => {
@@ -95,7 +97,7 @@ export default function TodoList({
             </button>
           </div>
           <button onClick={handleFilter} className="clearButton">
-            Clear Completed
+            <span> Clear Completed</span>
           </button>
         </div>
       </div>
