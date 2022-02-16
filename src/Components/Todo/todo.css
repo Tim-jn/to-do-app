@@ -50,3 +50,25 @@
   text-decoration: line-through;
   color: var(--completed);
 }
+
+@media screen and (max-width: 1100px) {
+  .todoItem {
+    height: 70px;
+  }
+
+  .todoTaskBtn {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .todoItem {
+    height: 60px;
+  }
+
+  .todoTaskBtn {
+    height: 20px;
+    width: 20px;
+  }
+}

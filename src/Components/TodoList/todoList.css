@@ -102,13 +102,15 @@ span {
 }
 
 @media screen and (max-width: 1100px) {
-  .middleButtons {
-    order: 3;
-    display: block;
+  .todoForm {
+    width: 55%;
+    height: 70px;
   }
-}
 
-@media screen and (max-width: 1100px) {
+  .todoList {
+    width: 55%;
+  }
+
   .todoInfo {
     background-color: var(--background);
     height: auto;
@@ -119,7 +121,7 @@ span {
     background: var(--formBackground);
     width: 50%;
     margin: 0;
-    height: 60px;
+    height: 55px;
     display: flex;
     align-items: center;
   }
@@ -136,16 +138,55 @@ span {
 
   span {
     margin: 0 15px;
+    font-size: 14px;
   }
 
   .middleButtons {
+    order: 3;
     margin: 20px 0 0 0;
     background: var(--formBackground);
     width: 100%;
-    height: 60px;
+    height: 55px;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .middleButtons > * {
+    font-size: 14px;
+  }
+
+  .submitTodo {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .todoForm {
+    width: 90%;
+    height: 60px;
+  }
+
+  .todoList {
+    width: 90%;
+  }
+
+  .itemsLeft,
+  .clearButton {
+    height: 45px;
+  }
+
+  span {
+    font-size: 12px;
+  }
+
+  .middleButtons {
+    height: 45px;
+  }
+
+  .submitTodo {
+    height: 20px;
+    width: 20px;
   }
 }
