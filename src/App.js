@@ -11,35 +11,76 @@ import { useState } from 'react'
 function App() {
   // Set todo list
   const [toDoList, setToDoList] = useState(data)
+  const [isFiltered, setIsFiltered] = useState(false)
+  const [filteredList, setFilteredList] = useState(toDoList)
 
   const handleToggle = (id) => {
-    let mapped = toDoList.map((task) => {
-      return task.id === parseInt(id)
-        ? { ...task, complete: !task.complete }
-        : { ...task }
-    })
-    setToDoList(mapped)
+    if (isFiltered) {
+      let mapped = filteredList.map((task) => {
+        return task.id === parseInt(id)
+          ? { ...task, complete: !task.complete }
+          : { ...task }
+      })
+      setFilteredList(mapped)
+      setToDoList(mapped)
+    } else {
+      let mapped = toDoList.map((task) => {
+        return task.id === parseInt(id)
+          ? { ...task, complete: !task.complete }
+          : { ...task }
+      })
+      setToDoList(mapped)
+    }
   }
 
   const handleFilter = () => {
-    let filtered = toDoList.filter((task) => {
-      return !task.complete
-    })
-    setToDoList(filtered)
+    if (isFiltered) {
+      let filtered = filteredList.filter((task) => {
+        return !task.complete
+      })
+      setFilteredList(filtered)
+      setToDoList(filtered)
+    } else {
+      let filtered = toDoList.filter((task) => {
+        return !task.complete
+      })
+      setToDoList(filtered)
+    }
   }
 
   const addTask = (userInput) => {
-    let copy = [...toDoList]
-    copy = [...copy, { id: rand, task: userInput, complete: false }]
-    setToDoList(copy)
+    if (isFiltered) {
+      let copy = [...filteredList]
+      copy = [...copy, { id: rand, task: userInput, complete: false }]
+      setFilteredList(copy)
+      setToDoList(copy)
+    } else {
+      let copy = [...toDoList]
+      copy = [...copy, { id: rand, task: userInput, complete: false }]
+      setToDoList(copy)
+    }
   }
 
-  // const showActive = () => {
-  //   let copy = [...toDoList]
-  //   copy = copy.map((item) => {
-  //     return item
-  //   })
-  // }
+  const showAll = () => {
+    setIsFiltered(false)
+    setToDoList(toDoList)
+  }
+
+  const showActive = () => {
+    let filtered = toDoList.filter((task) => {
+      return !task.complete
+    })
+    setIsFiltered(true)
+    setFilteredList(filtered)
+  }
+
+  const showCompleted = () => {
+    let filtered = toDoList.filter((task) => {
+      return task.complete
+    })
+    setIsFiltered(true)
+    setFilteredList(filtered)
+  }
 
   // Set mode (dark or light)
 
@@ -80,8 +121,10 @@ function App() {
           handleToggle={handleToggle}
           handleFilter={handleFilter}
           addTask={addTask}
-          // showActive={showActive}
-          toDoList={toDoList}
+          showActive={showActive}
+          showAll={showAll}
+          showCompleted={showCompleted}
+          toDoList={isFiltered ? filteredList : toDoList}
         />
       </section>
     </div>

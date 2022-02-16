@@ -4,10 +4,13 @@ import { useState } from 'react'
 
 export default function TodoList({
   toDoList,
+  filteredList,
   handleToggle,
   handleFilter,
   addTask,
-  // showActive,
+  showActive,
+  showAll,
+  showCompleted,
 }) {
   const [userInput, setUserInput] = useState('')
 
@@ -36,16 +39,30 @@ export default function TodoList({
       </form>
       <div className="todoList">
         <div>
-          {toDoList.map((todo, index) => {
-            return <Todo key={index} handleToggle={handleToggle} todo={todo} />
-          })}
+          {toDoList
+            ? toDoList.map((todo, index) => {
+                return (
+                  <Todo key={index} handleToggle={handleToggle} todo={todo} />
+                )
+              })
+            : filteredList.map((todo, index) => {
+                return (
+                  <Todo key={index} handleToggle={handleToggle} todo={todo} />
+                )
+              })}
         </div>
         <div className="todoInfo">
           {toDoList.length} items left
           <div className="middleButtons">
-            <button className="allButton">All</button>
-            <button className="activeButton">Active</button>
-            <button className="completedButton">Completed</button>
+            <button onClick={showAll} className="allButton">
+              All
+            </button>
+            <button onClick={showActive} className="activeButton">
+              Active
+            </button>
+            <button onClick={showCompleted} className="completedButton">
+              Completed
+            </button>
           </div>
           <button onClick={handleFilter} className="clearButton">
             Clear Completed
