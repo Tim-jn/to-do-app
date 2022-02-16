@@ -41,7 +41,7 @@ export default function TodoList({
         </form>
       )}
       <div className="todoList">
-        <div>
+        <div className="todoListContent">
           {toDoList
             ? toDoList.map((todo, index) => {
                 return (

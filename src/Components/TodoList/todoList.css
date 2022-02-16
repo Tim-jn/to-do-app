@@ -61,3 +61,8 @@ input:focus {
   color: var(--text-primary);
   cursor: pointer;
 }
+
+.todoListContent {
+  overflow: auto;
+  max-height: 450px;
+}
