@@ -33,6 +33,7 @@
   transition: all 0.5s;
   height: 100vh;
   position: relative;
+  overflow: auto;
 }
 
 section {
@@ -40,6 +41,7 @@ section {
   top: 100px;
   left: 0;
   width: 100%;
+  padding-bottom: 5%;
 }
 
 .banner {

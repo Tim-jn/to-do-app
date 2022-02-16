@@ -44,6 +44,7 @@ input:focus {
   background: var(--formBackground);
   margin-top: 30px;
   color: var(--textPrimary);
+  overflow: hidden;
 }
 
 .todoInfo {

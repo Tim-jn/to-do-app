@@ -13,9 +13,6 @@ function App() {
   const [toDoList, setToDoList] = useState(data)
   const [isFiltered, setIsFiltered] = useState(false)
   const [filteredList, setFilteredList] = useState(toDoList)
-  console.log(isFiltered)
-  console.log(toDoList)
-  console.log(filteredList)
 
   const handleToggle = (id) => {
     if (isFiltered) {
