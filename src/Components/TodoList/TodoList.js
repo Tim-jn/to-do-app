@@ -11,6 +11,7 @@ export default function TodoList({
   showActive,
   showAll,
   showCompleted,
+  isFiltered,
 }) {
   const [userInput, setUserInput] = useState('')
 
@@ -26,17 +27,19 @@ export default function TodoList({
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="todoForm">
-        <input className="submitTodo" type="submit" value=" " />
-        <input
-          onChange={handleChange}
-          type="text"
-          value={userInput}
-          className="createTodo"
-          placeholder="Create a new todo..."
-          required
-        />
-      </form>
+      {!isFiltered && (
+        <form onSubmit={handleSubmit} className="todoForm">
+          <input className="submitTodo" type="submit" value=" " />
+          <input
+            onChange={handleChange}
+            type="text"
+            value={userInput}
+            className="createTodo"
+            placeholder="Create a new todo..."
+            required
+          />
+        </form>
+      )}
       <div className="todoList">
         <div>
           {toDoList

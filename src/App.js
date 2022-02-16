@@ -13,6 +13,9 @@ function App() {
   const [toDoList, setToDoList] = useState(data)
   const [isFiltered, setIsFiltered] = useState(false)
   const [filteredList, setFilteredList] = useState(toDoList)
+  console.log(isFiltered)
+  console.log(toDoList)
+  console.log(filteredList)
 
   const handleToggle = (id) => {
     if (isFiltered) {
@@ -35,10 +38,13 @@ function App() {
 
   const handleFilter = () => {
     if (isFiltered) {
-      let filtered = filteredList.filter((task) => {
+      let filtered = toDoList.filter((task) => {
         return !task.complete
       })
-      setFilteredList(filtered)
+      let filter = filteredList.filter((task) => {
+        return !task.complete
+      })
+      setFilteredList(filter)
       setToDoList(filtered)
     } else {
       let filtered = toDoList.filter((task) => {
@@ -60,6 +66,8 @@ function App() {
       setToDoList(copy)
     }
   }
+
+  // sort to do list
 
   const showAll = () => {
     setIsFiltered(false)
@@ -125,6 +133,7 @@ function App() {
           showAll={showAll}
           showCompleted={showCompleted}
           toDoList={isFiltered ? filteredList : toDoList}
+          isFiltered={isFiltered}
         />
       </section>
     </div>
