@@ -2,11 +2,13 @@ import './App.css'
 import useLocalStorage from 'use-local-storage'
 import darkBannerDesktop from './assets/bg-desktop-dark.jpg'
 import lightBannerDesktop from './assets/bg-desktop-light.jpg'
+import darkBannerMobile from './assets/bg-mobile-dark.jpg'
+import lightBannerMobile from './assets/bg-mobile-light.jpg'
 import moonIcon from './assets/icon-moon.svg'
 import sunIcon from './assets/icon-sun.svg'
 import TodoList from './Components/TodoList/TodoList'
 import data from './data/data.json'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
   // Set todo list
@@ -104,10 +106,40 @@ function App() {
 
   const rand = Math.floor(Math.random() * (100 - 6 + 1)) + 6
 
+  // set media queries
+
+  const useMediaQuery = (query) => {
+    const [matches, setMatches] = useState(false)
+
+    useEffect(() => {
+      const media = window.matchMedia(query)
+      if (media.matches !== matches) {
+        setMatches(media.matches)
+      }
+      const listener = () => setMatches(media.matches)
+      window.addEventListener('resize', listener)
+      return () => window.removeEventListener('resize', listener)
+    }, [matches, query])
+
+    return matches
+  }
+
+  const isDesktop = useMediaQuery('(min-width: 375px)')
+
   return (
     <div className="app" data-theme={theme}>
       <img
-        src={theme === 'dark' ? darkBannerDesktop : lightBannerDesktop}
+        src={
+          theme === 'dark' && isDesktop
+            ? darkBannerDesktop
+            : theme === 'dark' && !isDesktop
+            ? darkBannerMobile
+            : theme === 'light' && isDesktop
+            ? lightBannerDesktop
+            : theme === 'light' && !isDesktop
+            ? lightBannerMobile
+            : ''
+        }
         alt="Banner"
         className="banner"
       />
