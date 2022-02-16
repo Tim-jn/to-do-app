@@ -63,6 +63,7 @@ section {
   font-size: 60px;
   letter-spacing: 30px;
   font-weight: 700;
+  cursor: default;
 }
 
 button {

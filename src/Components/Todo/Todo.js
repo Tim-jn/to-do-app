@@ -14,6 +14,7 @@ export default function Todo({ todo, handleToggle }) {
         onClick={handleClick}
         className={todo.complete ? 'todoTaskBtn taskCompleted' : 'todoTaskBtn'}
         type="button"
+        aria-label="task button"
       >
         {todo.complete ? <img src={checkIcon} alt="Check Icon" /> : ''}
       </button>

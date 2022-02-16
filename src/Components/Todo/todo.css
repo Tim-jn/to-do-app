@@ -5,6 +5,7 @@
   width: 100%;
   height: 80px;
   border-bottom: 1px solid hsla(233, 14%, 35%, 0.699);
+  cursor: pointer;
 }
 
 .todoTaskBtn {
@@ -29,7 +30,20 @@
   margin: auto;
   margin-left: 0;
   width: 85%;
-  cursor: default;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.todoTask:hover:after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  background: url(../Todo/icon-cross.svg) no-repeat center;
+  position: absolute;
+  right: 0;
+  top: 50% 50%;
 }
 
 .strike {
