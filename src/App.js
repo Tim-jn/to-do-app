@@ -164,7 +164,11 @@ function App() {
           toDoList={isFiltered ? filteredList : toDoList}
           isFiltered={isFiltered}
         />
-        <div className="bottomText">Drag and drop to reorder list</div>
+        {!isFiltered ? (
+          <div className="bottomText">Drag and drop to reorder list</div>
+        ) : (
+          ''
+        )}
       </section>
     </main>
   )
