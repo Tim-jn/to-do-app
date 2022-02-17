@@ -1,6 +1,6 @@
 # To Do App
 
-<img align="center" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/64/000000/external-warning-construction-wanicon-lineal-color-wanicon.png" alt="Warning" height="25"/> Le drag and drop n'est pas au point, je dois encore travailler dessus. <img align="center" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/64/000000/external-warning-construction-wanicon-lineal-color-wanicon.png" alt="Warning" height="25"/>
+<img align="center" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/64/000000/external-warning-construction-wanicon-lineal-color-wanicon.png" alt="Warning" height="25"/> Le drag and drop a été supprimé car il présentait plusieurs problèmes techniques. <img align="center" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/64/000000/external-warning-construction-wanicon-lineal-color-wanicon.png" alt="Warning" height="25"/>
 
 ## Intitulé du projet
 Todo App (Challenge [Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW))
