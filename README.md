@@ -1,6 +1,6 @@
 # To Do App
 
-<a href="https://icons8.com/icon/ITqvRjCwnKjQ/warning">Warning icon by Icons8</a>
+<img align="center" src="https://icons8.com/icon/ITqvRjCwnKjQ/warning" alt="Warning" height="18"/>
 
 ## Intitulé du projet
 Todo App (Challenge [Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW))
