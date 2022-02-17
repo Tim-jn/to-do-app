@@ -177,11 +177,6 @@ function App() {
           isFiltered={isFiltered}
           deleteTask={deleteTask}
         />
-        {!isFiltered ? (
-          <div className="bottomText">Drag and drop to reorder list</div>
-        ) : (
-          ''
-        )}
       </section>
     </main>
   )

@@ -1,7 +1,6 @@
 import './todoList.css'
 import Todo from '../Todo/Todo'
 import { useState } from 'react'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 export default function TodoList({
   toDoList,
@@ -17,7 +16,6 @@ export default function TodoList({
 }) {
   const [userInput, setUserInput] = useState('')
   const [activeLink, setActiveLink] = useState(1)
-  const [tasks, setTasks] = useState(toDoList)
 
   const handleChange = (e) => {
     setUserInput(e.currentTarget.value)
@@ -27,15 +25,6 @@ export default function TodoList({
     e.preventDefault()
     addTask(userInput)
     setUserInput('')
-  }
-
-  const handleOnDragEnd = (result) => {
-    if (!result.destination) return
-
-    const [reorderedItem] = tasks.splice(result.source.index, 1)
-    tasks.splice(result.destination.index, 0, reorderedItem)
-
-    setTasks(tasks)
   }
 
   return (
@@ -54,42 +43,31 @@ export default function TodoList({
         </form>
       )}
       <div className="todoList">
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-          <Droppable droppableId="tasks">
-            {(provided) => (
-              <ul
-                className="todoListContent"
-                {...provided.droppableProps}
-                ref={provided.innerRef}
-              >
-                {toDoList
-                  ? toDoList.map((todo, index) => {
-                      return (
-                        <Todo
-                          handleToggle={handleToggle}
-                          todo={todo}
-                          index={index}
-                          key={todo.id}
-                          deleteTask={deleteTask}
-                        />
-                      )
-                    })
-                  : filteredList.map((todo, index) => {
-                      return (
-                        <Todo
-                          handleToggle={handleToggle}
-                          todo={todo}
-                          index={index}
-                          key={todo.id}
-                          deleteTask={deleteTask}
-                        />
-                      )
-                    })}
-                {provided.placeholder}
-              </ul>
-            )}
-          </Droppable>
-        </DragDropContext>
+        <ul className="todoListContent">
+          {toDoList
+            ? toDoList.map((todo, index) => {
+                return (
+                  <Todo
+                    handleToggle={handleToggle}
+                    todo={todo}
+                    index={index}
+                    key={todo.id}
+                    deleteTask={deleteTask}
+                  />
+                )
+              })
+            : filteredList.map((todo, index) => {
+                return (
+                  <Todo
+                    handleToggle={handleToggle}
+                    todo={todo}
+                    index={index}
+                    key={todo.id}
+                    deleteTask={deleteTask}
+                  />
+                )
+              })}
+        </ul>
         <div className="todoInfo">
           <div className="itemsLeft">
             <span>{toDoList.length} items left</span>
