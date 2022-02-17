@@ -127,7 +127,7 @@ function App() {
   const isDesktop = useMediaQuery('(min-width: 375px)')
 
   return (
-    <div className="app" data-theme={theme}>
+    <main className="app" data-theme={theme}>
       <img
         src={
           theme === 'dark' && isDesktop
@@ -164,8 +164,9 @@ function App() {
           toDoList={isFiltered ? filteredList : toDoList}
           isFiltered={isFiltered}
         />
+        <div className="bottomText">Drag and drop to reorder list</div>
       </section>
-    </div>
+    </main>
   )
 }
 
