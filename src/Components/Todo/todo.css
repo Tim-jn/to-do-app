@@ -6,6 +6,7 @@
   height: 80px;
   border-bottom: 1px solid hsla(233, 14%, 35%, 0.699);
   cursor: pointer;
+  position: relative;
 }
 
 .todoTaskBtn {
@@ -33,9 +34,9 @@
   height: 100%;
   display: flex;
   align-items: center;
-  position: relative;
 }
 
+/* 
 .todoTask:hover:after {
   content: '';
   width: 30px;
@@ -44,6 +45,18 @@
   position: absolute;
   right: 0;
   top: 50% 50%;
+} */
+
+.crossIcon {
+  position: absolute;
+  right: 20px;
+  top: 38%;
+  cursor: pointer;
+}
+
+.crossIcon img {
+  height: 20px;
+  width: 20px;
 }
 
 .strike {
@@ -65,6 +78,11 @@
     width: 10px;
     height: 8px;
   }
+
+  .crossIcon img {
+    height: 15px;
+    width: 15px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -75,5 +93,10 @@
   .todoTaskBtn {
     height: 20px;
     width: 20px;
+  }
+
+  .crossIcon img {
+    height: 10px;
+    width: 10px;
   }
 }

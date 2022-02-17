@@ -66,6 +66,18 @@ function App() {
     }
   }
 
+  const deleteTask = (id) => {
+    if (isFiltered) {
+      let filtered = toDoList.filter((task) => task.id !== parseInt(id))
+      let filter = filteredList.filter((task) => task.id !== parseInt(id))
+      setFilteredList(filter)
+      setToDoList(filtered)
+    } else {
+      let filtered = toDoList.filter((task) => task.id !== parseInt(id))
+      setToDoList(filtered)
+    }
+  }
+
   // sort to do list
 
   const showAll = () => {
@@ -163,6 +175,7 @@ function App() {
           showCompleted={showCompleted}
           toDoList={isFiltered ? filteredList : toDoList}
           isFiltered={isFiltered}
+          deleteTask={deleteTask}
         />
         {!isFiltered ? (
           <div className="bottomText">Drag and drop to reorder list</div>

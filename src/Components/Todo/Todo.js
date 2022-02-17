@@ -1,11 +1,16 @@
 import './todo.css'
 import checkIcon from './icon-check.svg'
+import crossIcon from './icon-cross.svg'
 import { Draggable } from 'react-beautiful-dnd'
 
-export default function Todo({ todo, handleToggle, index }) {
+export default function Todo({ todo, handleToggle, index, deleteTask }) {
   const handleClick = (e) => {
     e.preventDefault()
     handleToggle(e.currentTarget.id)
+  }
+
+  const handleDelete = (e) => {
+    deleteTask(e.currentTarget.id)
   }
 
   return (
@@ -31,6 +36,9 @@ export default function Todo({ todo, handleToggle, index }) {
           <div className={todo.complete ? 'todoTask strike' : 'todoTask'}>
             {todo.task}
           </div>
+          <button id={todo.id} onClick={handleDelete} className="crossIcon">
+            <img src={crossIcon} alt="Cross icon" />
+          </button>
         </li>
       )}
     </Draggable>

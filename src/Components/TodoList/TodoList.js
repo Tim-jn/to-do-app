@@ -13,6 +13,7 @@ export default function TodoList({
   showAll,
   showCompleted,
   isFiltered,
+  deleteTask,
 }) {
   const [userInput, setUserInput] = useState('')
   const [activeLink, setActiveLink] = useState(1)
@@ -69,6 +70,7 @@ export default function TodoList({
                           todo={todo}
                           index={index}
                           key={todo.id}
+                          deleteTask={deleteTask}
                         />
                       )
                     })
@@ -79,6 +81,7 @@ export default function TodoList({
                           todo={todo}
                           index={index}
                           key={todo.id}
+                          deleteTask={deleteTask}
                         />
                       )
                     })}
