@@ -31,7 +31,12 @@ export default function TodoList({
     <>
       {!isFiltered && (
         <form onSubmit={handleSubmit} className="todoForm">
-          <input className="submitTodo" type="submit" value=" " />
+          <input
+            className="submitTodo"
+            type="submit"
+            aria-label="Submit Button"
+            value=" "
+          />
           <input
             onChange={handleChange}
             type="text"
